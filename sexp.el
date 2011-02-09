@@ -1,0 +1,38 @@
+CUSTOMISE SEXP HANDLING
+(require 'thingatpt)
+
+(defun my-beginning-of-sexp ()
+  (interactive)
+  (let* ((b (bounds-of-thing-at-point 'sexp))
+         (s (car b)))
+    (if (not (= s (point)))
+        (beginning-of-sexp))))
+
+(defun my-end-of-sexp ()
+  (interactive)
+  (let* ((b (bounds-of-thing-at-point 'sexp))
+         (e (cdr b)))
+    (if (> e (point))
+        (end-of-sexp))))
+
+(global-set-key (kbd "<M-s-left>") 'my-beginning-of-sexp)
+(global-set-key (kbd "<M-s-right>") 'my-end-of-sexp)
+
+(defun my-raise-sexp ()
+  (interactive)
+  (let ((prev-point (point)))
+    (my-beginning-of-sexp)
+    ;; (backward-sexp)
+    (let* ((new-point (point))
+           (point-diff (- prev-point new-point)))
+      (raise-sexp)
+      (forward-char point-diff))))
+(global-set-key (kbd "<M-s-up>") 'my-raise-sexp)
+
+(defun wrap-sexp (&optional arg)
+  (interactive "p")
+  (push-mark)
+  (my-beginning-of-sexp)
+  (insert-pair arg ?( ?))
+  (pop-mark))
+(global-set-key (kbd "<M-s-down>") 'wrap-sexp)
