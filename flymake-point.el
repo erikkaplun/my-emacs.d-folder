@@ -42,3 +42,5 @@ displayed in the minibuffer (rather than having to mouse over
 it)"
   (set (make-local-variable 'post-command-hook)
        (cons 'show-fly-err-at-point post-command-hook))) 
+
+(provide 'flymake-point)

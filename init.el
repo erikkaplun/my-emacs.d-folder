@@ -1,6 +1,6 @@
 (defun add-to-PATH (dir)
   "Add the specified path element to the Emacs PATH"
-  (interactive "DEnter directory to be added to PATH: ")
+  (interactive "Enter directory to be added to PATH: ")
   (if (file-directory-p dir)
       (setenv "PATH"
               (concat (expand-file-name dir)
@@ -20,6 +20,7 @@
 (setq-default c-basic-offset 4)
 (set-language-environment "utf-8")
 (cua-selection-mode t)
+(tooltip-mode -1)  ; Tooltips cause problems with multiple desktops.
 
 (setq ffip-regexp ".*")
 (setq ffip-find-options "-not -regex \".*(~|\\.pyc|\\.elc|#)\"")
@@ -44,11 +45,10 @@
 (load "~/.emacs.d/flymake.el")
 (load "~/.emacs.d/django-utils.el")
 (load "~/.emacs.d/lisp.el")
-(require 'magit)
-
-(load-file "~/elisp/rudel-0.2-4/rudel-loaddefs.el")
-
 (load "~/.emacs.d/slime.el")
+;; (require 'magit)
+
+;; (load-file "~/elisp/rudel-0.2-4/rudel-loaddefs.el")
 
 
 (custom-set-variables
@@ -59,7 +59,7 @@
  '(blink-cursor-delay 0.2)
  '(blink-cursor-mode t)
  '(column-number-mode t)
- '(django-indent-width 4)
+ '(django-indent-width 0)
  '(mouse-wheel-progressive-speed t)
  '(mouse-wheel-scroll-amount (quote (1 ((shift) . 1) ((control)))))
  '(nxhtml-default-encoding (quote utf-8))
