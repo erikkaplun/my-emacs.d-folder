@@ -13,9 +13,12 @@
 (add-to-list 'exec-path "~/bin")
 (add-to-PATH "/opt/local/bin")
 (add-to-PATH "~/bin")
+(add-to-PATH "/Applications/Racket/bin")
+(add-to-PATH "/opt/local/Library/Frameworks/Python.framework/Versions/2.6/bin/")
 
 (when (load (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
+(load "~/.emacs.d/el-get.el")
 
 (setq-default c-basic-offset 4)
 (set-language-environment "utf-8")
@@ -42,13 +45,30 @@
 (load "~/.emacs.d/python.el")
 (load "~/.emacs.d/pymacs.el")
 (load "~/.emacs.d/ropemacs.el")
+(load "~/.emacs.d/autocomplete.el")
 (load "~/.emacs.d/flymake.el")
 (load "~/.emacs.d/django-utils.el")
 (load "~/.emacs.d/lisp.el")
 (load "~/.emacs.d/slime.el")
+(load "~/.emacs.d/w3m.el")
+(load "~/.emacs.d/geiser-conf.el")
+(load "~/.emacs.d/gettext.el")
 ;; (require 'magit)
 
 ;; (load-file "~/elisp/rudel-0.2-4/rudel-loaddefs.el")
+
+(server-start)
+
+(require 'edit-server)
+(edit-server-start)
+
+
+(add-to-list 'auto-mode-alist '("\\.zcml\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.pt\\'" . nxml-mode))
+
+
+(defalias 'yes-or-no-p 'y-or-n-p)
+(put 'ido-exit-minibuffer 'disabled nil)
 
 
 (custom-set-variables
@@ -65,21 +85,21 @@
  '(nxhtml-default-encoding (quote utf-8))
  '(nxml-child-indent 4)
  '(nxml-outline-child-indent 4)
- '(safe-local-variable-values (quote ((virtualenv-workon . "kultinf") (ffip-regexp . ".+\\.(py|html|css)") (Package . CCL))))
+ '(rst-emphasis1-face (if (facep (quote italic)) (quote (quote italic)) (quote italic)))
+ '(rst-emphasis2-face (if (facep (quote bold)) (quote (quote bold)) (quote bold)))
+ '(rst-level-face-base-light 40)
+ '(safe-local-variable-values (quote ((encoding . utf-8) (virtualenv-workon . "kultinf") (ffip-regexp . ".+\\.(py|html|css)") (Package . CCL))))
  '(scroll-bar-mode nil)
  '(set-mark-command-repeat-pop t)
  '(show-paren-mode t))
 
-(add-to-list 'auto-mode-alist '("\\.zcml\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.pt\\'" . nxml-mode))
-
-(server-start)
 (custom-set-faces
   ;; custom-set-faces was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "#000000" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight bold :height 120 :width normal :foundry "apple" :family "Monaco"))))
  '(mumamo-background-chunk-major ((((class color) (min-colors 88) (background dark)) (:background "Black"))))
- '(mumamo-background-chunk-submode1 ((((class color) (min-colors 88) (background dark)) (:background "Black")))))
-
-(defalias 'yes-or-no-p 'y-or-n-p)
+ '(mumamo-background-chunk-submode1 ((((class color) (min-colors 88) (background dark)) (:background "Black"))))
+ '(rst-level-1-face ((t (:background "grey35"))) t)
+ '(rst-level-2-face ((t (:background "grey30"))) t))
