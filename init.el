@@ -30,6 +30,18 @@
 
 (desktop-save-mode)
 
+;; Put autosave files (ie #foo#) and backup files (ie foo~) in ~/.emacs.d/.
+(custom-set-variables
+  '(auto-save-file-name-transforms '((".*" "~/.emacs.d/autosaves/\\1" t)))
+  '(backup-directory-alist '((".*" . "~/.emacs.d/backups/"))))
+
+;; create the autosave dir if necessary, since emacs won't.
+(make-directory "~/.emacs.d/autosaves/" t)
+(make-directory "~/.emacs.d/backups" t)
+
+(setq tab-width 4)
+(setf css-indent-level 4)
+
 (load "~/.emacs.d/keymap.el")
 ;; (load "~/.emacs.d/sexp.el")
 (load "~/.emacs.d/ido.el")
@@ -40,7 +52,7 @@
 (load "~/.emacs.d/textmate.el")
 (load "~/.emacs.d/javascript.el")
 (load "~/.emacs.d/yaml.el")
-(load "~/.emacs.d/nxhtml.el")
+;; (load "~/.emacs.d/nxhtml.el")
 ;; (load "php-mode.el")
 (load "~/.emacs.d/python.el")
 (load "~/.emacs.d/pymacs.el")
@@ -57,14 +69,25 @@
 
 ;; (load-file "~/elisp/rudel-0.2-4/rudel-loaddefs.el")
 
+(defun jao-toggle-selective-display (column)
+  (interactive "P")
+  (set-selective-display
+   (if selective-display nil (or column 1))))
+
+(defun toggle-selective-display-column ()
+  "set selective display fold everything greater than the current column, or toggle off if active"
+  (interactive)
+  (set-selective-display
+   (if selective-display nil (or (+ (current-column) 1) 1))))
+
 (server-start)
 
 (require 'edit-server)
 (edit-server-start)
 
 
-(add-to-list 'auto-mode-alist '("\\.zcml\\'" . nxml-mode))
-(add-to-list 'auto-mode-alist '("\\.pt\\'" . nxml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.zcml\\'" . nxml-mode))
+;; (add-to-list 'auto-mode-alist '("\\.pt\\'" . nxml-mode))
 
 
 (defalias 'yes-or-no-p 'y-or-n-p)
