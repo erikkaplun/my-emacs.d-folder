@@ -1,1 +1,1 @@
-(:geiser "installed" :po-mode "installed")
+(:el-get "installed" :smex "installed")

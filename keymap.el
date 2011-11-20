@@ -23,3 +23,5 @@
 (global-set-key (kbd "<s-down>") 'end-of-buffer)
 
 (global-set-key (kbd "s-t") 'find-file-in-project)
+
+(global-set-key (kbd "s-9") 'maximize-frame)

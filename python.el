@@ -24,11 +24,20 @@
 ;;                                 (define-key py-mode-map (kbd "M-<tab>") 'complete-symbol)
 ;;                                 (define-key py-mode-map (kbd "M-/") 'dabbrev-expand)))
 
-(require 'ipython)
-(setq py-python-command-args '( "-colors" "Linux"))
+;; (require 'ipython)
+;; (setq py-python-command-args '( "-colors" "Linux"))
 
-(defadvice py-execute-buffer (around python-keep-focus activate)
-  "return focus to python code buffer"
-  (save-excursion ad-do-it))
+;; (defadvice py-execute-buffer (around python-keep-focus activate)
+;;   "return focus to python code buffer"
+;;   (save-excursion ad-do-it))
 
-(provide 'python-programming)
+;; (provide 'python-programming)
+
+
+(autoload 'pymacs-apply "pymacs")
+(autoload 'pymacs-call "pymacs")
+(autoload 'pymacs-eval "pymacs" nil t)
+(autoload 'pymacs-exec "pymacs" nil t)
+(autoload 'pymacs-load "pymacs" nil t)
+;;(eval-after-load "pymacs"
+;;  '(add-to-list 'pymacs-load-path YOUR-PYMACS-DIRECTORY"))
