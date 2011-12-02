@@ -1,6 +1,9 @@
+(setf pymacs-loaded nil)
 (add-hook 'python-mode-hook
           (lambda ()
-            (pymacs-load "ropemacs" "rope-")))
+            (when (not pymacs-loaded)
+              (pymacs-load "ropemacs" "rope-")
+              (setf pymacs-loaded t))))
 
 (setq ropemacs-confirm-saving nil
       ropemacs-guess-project t

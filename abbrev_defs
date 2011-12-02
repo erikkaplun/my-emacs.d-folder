@@ -3,6 +3,8 @@
 
 (define-abbrev-table 'Custom-mode-abbrev-table '())
 
+(define-abbrev-table 'ack-mode-abbrev-table '())
+
 (define-abbrev-table 'apropos-mode-abbrev-table '())
 
 (define-abbrev-table 'awk-mode-abbrev-table
@@ -43,7 +45,7 @@
   '(
     ("ass" "console.assert" nil 2)
     ("callp" "this.callParent(arguments)" nil 3)
-    ("deb" "console.debug" nil 66)
+    ("deb" "console.debug" nil 79)
     ("debarg" "console.debug(arguments)" nil 1)
    ))
 
@@ -63,7 +65,7 @@
 
 (define-abbrev-table 'python-mode-abbrev-table
   '(
-    ("pdb" "import pdb; pdb.set_trace();" nil 17)
+    ("pdb" "import pdb; pdb.set_trace()" nil 4)
    ))
 
 (define-abbrev-table 'quietly-read-abbrev-file '())

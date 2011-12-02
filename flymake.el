@@ -27,3 +27,8 @@
 ;; (add-hook 'html-mode-hook
 ;;           '(lambda ()
 ;;              (unless (eq buffer-file-name nil) (flymake-mode 1))))
+
+
+(require 'flymake-jslint)
+(add-hook 'javascript-mode-hook
+	  (lambda () (flymake-mode t)))
