@@ -1,3 +1,6 @@
 autosaves/
 backups/
 *~
+el-get/
+build/
+elpa/
