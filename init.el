@@ -9,6 +9,7 @@
 
 (add-to-list 'load-path "/opt/local/share/emacs/site-lisp/")
 (add-to-list 'load-path "~/elisp")
+(add-to-list 'load-path "~/.emacs.d/my-packages")
 (add-to-list 'exec-path "/opt/local/bin")
 (add-to-list 'exec-path "~/bin")
 (add-to-list 'exec-path "/usr/local/bin")
