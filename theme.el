@@ -4,7 +4,7 @@
 (add-hook 'window-setup-hook 'maximize-frame t)
 
 (when (not (null window-system))
-  (set-frame-size (selected-frame) 179 50)
+  (set-frame-size (selected-frame) 234 67)
   (load "color-theme")
   (require 'color-theme)
   (load "vibrant-ink")

@@ -1,4 +1,4 @@
-(load "textmate.el/textmate.el")
+(load "textmate.el")
 (textmate-define-comment-line)
 ;;; Taken from textmate.el:
 (global-set-key [(super /)] 'comment-or-uncomment-region-or-line)
