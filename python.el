@@ -9,7 +9,6 @@
               (require 'virtualenv)
 
               (define-key py-mode-map (kbd "RET") 'newline)
-              (define-key ropemacs-local-keymap (kbd "M-s-÷") 'dabbrev-expand)
 
               (set (make-variable-buffer-local 'beginning-of-defun-function)
                    'py-beginning-of-def-or-class)
