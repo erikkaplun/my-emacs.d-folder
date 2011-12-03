@@ -75,7 +75,6 @@
 (setq tab-width 4)
 (setq css-indent-level 4)
 
-(load "~/.emacs.d/keymap.el")
 (load "~/.emacs.d/ido.el")
 (load "~/.emacs.d/smex.el")
 (load "~/.emacs.d/theme.el")
@@ -98,6 +97,9 @@
 ;; (require 'magit)
 (load "~/.emacs.d/linum-conf.el")
 (load "~/.emacs.d/scss-mode-conf.el")
+
+;; Any overrides come last:
+(load "~/.emacs.d/keymap.el")
 
 (desktop-save-mode)
 
