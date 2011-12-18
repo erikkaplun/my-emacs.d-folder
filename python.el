@@ -14,8 +14,6 @@
                    'py-beginning-of-def-or-class)
               (setq outline-regexp "def\\|class ")
 
-              (setq comment-start "#~")
-
               ;; (highlight-parentheses-mode t)
               ))
 
