@@ -1,10 +1,10 @@
-(setf ropemacs-loaded nil)
+(setq ropemacs-loaded nil)
 (add-hook 'python-mode-hook
           (lambda ()
             (when (not ropemacs-loaded)
               (pymacs-load "ropemacs" "rope-")
               (define-key ropemacs-local-keymap (kbd "M-/") 'dabbrev-expand)
-              (setf ropemacs-loaded t))))
+              (setq ropemacs-loaded t))))
 
 (setq ropemacs-confirm-saving nil
       ropemacs-guess-project t

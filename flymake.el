@@ -1,7 +1,7 @@
 (load "~/.emacs.d/flymake-point.el")
 
-(require 'flymake)
-(require 'flymake-point)
+;; (require 'flymake)
+;; (require 'flymake-point)
 
 (when (load "flymake" t)
   (defun flymake-pyflakes-init ()
@@ -10,7 +10,7 @@
            (local-file (file-relative-name
                         temp-file
                         (file-name-directory buffer-file-name))))
-      (list "pyflakes" (list local-file))))
+      (list "~/.emacs.d/pyflymake.py" (list local-file))))
 
   (add-to-list 'flymake-allowed-file-name-masks
                '("\\.py\\'" flymake-pyflakes-init)))
@@ -29,6 +29,6 @@
 ;;              (unless (eq buffer-file-name nil) (flymake-mode 1))))
 
 
-(require 'flymake-jslint)
+;;(require 'flymake-jslint)
 (add-hook 'javascript-mode-hook
 	  (lambda () (flymake-mode t)))

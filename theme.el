@@ -1,17 +1,6 @@
 (setq inhibit-splash-screen t)
 
-(require 'maxframe)
 (add-hook 'window-setup-hook 'maximize-frame t)
-
-(when (not (null window-system))
-  (set-frame-size (selected-frame) 234 67)
-  (load "color-theme")
-  (require 'color-theme)
-  (load "vibrant-ink")
-  (color-theme-vibrant-ink))
-
-  ;; (load "~/.emacs.d/my-color-theme.el")
-  ;; (my-color-theme)
 
 (setq-default indent-tabs-mode nil)
 (setq hscroll-step 1)
