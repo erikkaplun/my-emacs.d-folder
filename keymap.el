@@ -44,7 +44,12 @@
          (set-mark (point))
          (end-of-line)
          (call-interactively (function ,orig-function))))))
-
 (allow-line-as-region-for-function comment-or-uncomment-region)
-
 (global-set-key [(super /)] 'comment-or-uncomment-region-or-line)
+
+
+(defun backward-kill-line (arg)
+  "Kill chars backward until encountering the end of a line."
+  (interactive "p")
+  (kill-line 0))
+(global-set-key (kbd "<s-backspace>") 'backward-kill-line)
