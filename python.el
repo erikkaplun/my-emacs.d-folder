@@ -2,20 +2,32 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 (add-hook 'python-mode-hook
-          #'(lambda ()
-              (setenv "LANG" "en_US.UTF-8")
-              (setenv "LC_ALL" "en_US.UTF-8")
+          (lambda ()
+            (setenv "LANG" "en_US.UTF-8")
+            (setenv "LC_ALL" "en_US.UTF-8")
 
-              (require 'virtualenv)
+            (require 'virtualenv)
+            (require 'nose)
 
-              (define-key py-mode-map (kbd "RET") 'newline)
+            (define-key python-mode-map (kbd "RET") 'newline)
+            (define-key python-mode-map (kbd "#") 'self-insert-command)
 
-              (set (make-variable-buffer-local 'beginning-of-defun-function)
-                   'py-beginning-of-def-or-class)
-              (setq outline-regexp "def\\|class ")
+            (define-key python-mode-map (kbd "<s-backspace>") (lambda () (interactive) (kill-line 0)))
 
-              ;; (highlight-parentheses-mode t)
-              ))
+            (define-key python-mode-map (kbd "<backtab>") 'py-shift-left)
+            (define-key python-mode-map (kbd "<M-S-tab>") 'py-shift-right)
+
+            (local-set-key "\C-ca" 'nosetests-all)
+            (local-set-key "\C-cm" 'nosetests-module)
+            (local-set-key "\C-c." 'nosetests-one)
+
+            (set (make-variable-buffer-local 'beginning-of-defun-function)
+                 'py-beginning-of-def-or-class)
+            (setq outline-regexp "def\\|class ")
+
+            ;; (highlight-parentheses-mode t)
+            (rainbow-delimiters-mode)
+            (highlight-indentation-mode)))
 
 ;; (add-hook 'python-mode-hook #'(lambda ()
 ;;                                 (define-key py-mode-map (kbd "M-<tab>") 'complete-symbol)

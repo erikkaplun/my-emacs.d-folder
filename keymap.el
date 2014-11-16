@@ -24,7 +24,7 @@
 
 (global-set-key (kbd "s-t") 'find-file-in-project)
 
-(global-set-key (kbd "s-9") 'maximize-frame)
+;; (global-set-key (kbd "s-9") 'maximize-frame)
 
 (global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
 
@@ -48,8 +48,8 @@
 (global-set-key [(super /)] 'comment-or-uncomment-region-or-line)
 
 
-(defun backward-kill-line (arg)
-  "Kill chars backward until encountering the end of a line."
-  (interactive "p")
-  (kill-line 0))
-(global-set-key (kbd "<s-backspace>") 'backward-kill-line)
+;; (defun backward-kill-line (arg)
+;;   "Kill chars backward until encountering the end of a line."
+;;   (interactive "p")
+;;   (kill-line 0))
+;; (global-set-key (kbd "<s-backspace>") 'backward-kill-line)

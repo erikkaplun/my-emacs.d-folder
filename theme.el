@@ -1,6 +1,6 @@
 (setq inhibit-splash-screen t)
 
-(add-hook 'window-setup-hook 'maximize-frame t)
+;; (add-hook 'window-setup-hook 'maximize-frame t)
 
 (setq-default indent-tabs-mode nil)
 (setq hscroll-step 1)
@@ -10,7 +10,7 @@
 (setq next-screen-context-lines 10)
 (setq scroll-preserve-screen-position t)
 (setq default-indicate-empty-lines t)
-(setq-default show-trailing-whitespace t)
+;; (setq-default show-trailing-whitespace t)
 (setq overflow-newline-into-fringe t)
 (setq truncate-lines t)
 (setq-default truncate-lines t)

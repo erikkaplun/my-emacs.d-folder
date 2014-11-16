@@ -18,6 +18,13 @@ def log(msg):
     #     print >> f, msg
 
 
+def dbg(*args):
+    with open('/Users/erik.allik/pyflymake.log', 'wa') as f:
+        for arg in args:
+            print >>f, arg,
+        print >>f
+
+
 class LintRunner(object):
     """ Base class provides common functionality to run
           python code checkers. """
@@ -367,6 +374,10 @@ def main():
     if config.TEST_RUNNER_COMMAND:
         tests = TestRunner(config)
         tests.run(args[0])
+
+    dbg("args[0]:", args[0])
+    dbg("CWD:", os.getcwd())
+    dbg("normpath:", os.path.normpath(os.path.join(os.getcwd(), args[0])))
 
     def run(runner_class):
         runner = runner_class(config)
