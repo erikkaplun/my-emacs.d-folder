@@ -10,8 +10,6 @@
 (global-set-key (kbd "s-0") 'delete-window)
 (global-set-key (kbd "<C-tab>") 'next-buffer)
 (global-set-key (kbd "<C-S-tab>") 'previous-buffer)
-(global-set-key (kbd "<S-s-down>") 'next-line)
-(global-set-key (kbd "<S-s-up>") 'previous-line)
 (global-set-key (kbd "<C-M-backspace>") 'backward-kill-sexp)
 
 (global-set-key (kbd "C-M-(") 'delete-pair)
