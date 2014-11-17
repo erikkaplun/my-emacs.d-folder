@@ -39,6 +39,22 @@
 
 (define-abbrev-table 'fundamental-mode-abbrev-table '())
 
+(define-abbrev-table 'gdb-breakpoints-mode-abbrev-table '())
+
+(define-abbrev-table 'gdb-disassembly-mode-abbrev-table '())
+
+(define-abbrev-table 'gdb-frames-mode-abbrev-table '())
+
+(define-abbrev-table 'gdb-locals-mode-abbrev-table '())
+
+(define-abbrev-table 'gdb-memory-mode-abbrev-table '())
+
+(define-abbrev-table 'gdb-registers-mode-abbrev-table '())
+
+(define-abbrev-table 'gdb-script-mode-abbrev-table '())
+
+(define-abbrev-table 'gdb-threads-mode-abbrev-table '())
+
 (define-abbrev-table 'git-commit-mode-abbrev-table '())
 
 (define-abbrev-table 'git-rebase-mode-abbrev-table '())
@@ -46,6 +62,8 @@
 (define-abbrev-table 'global-abbrev-table '())
 
 (define-abbrev-table 'grep-mode-abbrev-table '())
+
+(define-abbrev-table 'gud-mode-abbrev-table '())
 
 (define-abbrev-table 'haskell-cabal-mode-abbrev-table '())
 
@@ -71,13 +89,7 @@
 
 (define-abbrev-table 'java-mode-abbrev-table '())
 
-(define-abbrev-table 'js-mode-abbrev-table
-  '(
-    ("ass" "console.assert" nil 2)
-    ("callp" "this.callParent(arguments)" nil 3)
-    ("deb" "console.debug" nil 79)
-    ("debarg" "console.debug(arguments)" nil 1)
-   ))
+(define-abbrev-table 'js-mode-abbrev-table '())
 
 (define-abbrev-table 'jython-mode-abbrev-table '())
 
@@ -127,17 +139,7 @@
 
 (define-abbrev-table 'py-mode-abbrev-table '())
 
-(define-abbrev-table 'python-mode-abbrev-table
-  '(
-    ("class" "" python-skeleton-class 0)
-    ("def" "" python-skeleton-def 0)
-    ("for" "" python-skeleton-for 0)
-    ("if" "" python-skeleton-if 0)
-    ("ipdb" "import ipdb; ipdb.set_trace()" nil 4)
-    ("pdb" "import pdb; pdb.set_trace()" nil 4)
-    ("try" "" python-skeleton-try 0)
-    ("while" "" python-skeleton-while 0)
-   ))
+(define-abbrev-table 'python-mode-abbrev-table '())
 
 (define-abbrev-table 'python2-mode-abbrev-table '())
 
@@ -145,7 +147,12 @@
 
 (define-abbrev-table 'quietly-read-abbrev-file '())
 
-(define-abbrev-table 'scala-mode-abbrev-table '())
+(define-abbrev-table 'sbt-mode-abbrev-table '())
+
+(define-abbrev-table 'scala-mode-abbrev-table
+  '(
+    ("sclz" "import scalaz._, Scalaz._" nil 2)
+   ))
 
 (define-abbrev-table 'scss-mode-abbrev-table '())
 

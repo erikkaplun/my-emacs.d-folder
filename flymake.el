@@ -4,6 +4,8 @@
 ;; (require 'flymake-point)
 
 (when (load "flymake" t)
+  (setq flymake-gui-warnings-enabled nil)
+
   (defun flymake-pyflakes-init ()
     (let* ((temp-file (flymake-init-create-temp-buffer-copy
                        'flymake-create-temp-inplace))

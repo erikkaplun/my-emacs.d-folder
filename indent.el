@@ -1,3 +1,6 @@
+(load "highlight-indentation")
+;; (add-to-list 'auto-mode-alist '("\\.py\\'" . highlight-indentation-mode))
+
 (dolist (command '(yank yank-pop))
   (eval `(defadvice ,command (after indent-region activate)
            (and (not current-prefix-arg)

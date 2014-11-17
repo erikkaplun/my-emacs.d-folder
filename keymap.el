@@ -1,5 +1,4 @@
 (define-key local-function-key-map [kp-delete] [4])
-
 (global-set-key (kbd "s-o") 'other-window)
 (global-set-key (kbd "s-b") 'ido-switch-buffer)
 (global-set-key (kbd "s--") 'kill-this-buffer)
@@ -21,8 +20,9 @@
 (global-set-key (kbd "<s-down>") 'end-of-buffer)
 
 (global-set-key (kbd "s-t") 'find-file-in-project)
-
 (global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
+
+(global-set-key (kbd "s-<") 'edit-emacs-conf)
 
 
 (defmacro allow-line-as-region-for-function (orig-function)
