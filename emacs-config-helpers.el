@@ -7,4 +7,4 @@
 
 (defun edit-emacs-conf (conf-name)
   (interactive (list (completing-read "Name: " (all-conf-file-names))))
-  (find-file (concat user-emacs-directory "/" conf-name ".el")))
+  (find-file (concat user-emacs-directory "/" conf-name)))

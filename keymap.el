@@ -19,11 +19,12 @@
 (global-set-key (kbd "<s-up>") 'beginning-of-buffer)
 (global-set-key (kbd "<s-down>") 'end-of-buffer)
 
-(global-set-key (kbd "s-t") 'find-file-in-project)
-(global-set-key (kbd "C-x C-M-f") 'find-file-in-project)
+(global-set-key (kbd "s-t") 'helm-projectile)
 
 (global-set-key (kbd "s-<") 'edit-emacs-conf)
 
+(global-set-key (kbd "C-x a r") 'align-regexp)
+(global-set-key (kbd "M-[") 'align)
 
 (defmacro allow-line-as-region-for-function (orig-function)
   `(defun ,(intern (concat (symbol-name orig-function) "-or-line"))

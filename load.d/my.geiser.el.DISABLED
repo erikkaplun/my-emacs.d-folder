@@ -4,7 +4,7 @@
       (quote (((regexp "\\.scm$") racket)
               ((regexp "\\.ss$") racket)
               ((regexp "\\.rkt$") racket))))
-(setq geiser-racket-binary
-      "/Applications/Racket/bin/racket")
-(setq geiser-racket-gracket-binary
-      "/Applications/Racket/bin/gracket-text")
+;; (setq geiser-racket-binary
+;;       "/Applications/Racket/bin/racket")
+;; (setq geiser-racket-gracket-binary
+;;       "/Applications/Racket/bin/gracket-text")
