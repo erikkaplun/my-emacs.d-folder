@@ -2,6 +2,7 @@
 ;; Clojure
 ;;;;
 
+
 ;; Enable paredit for Clojure
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 
@@ -30,7 +31,7 @@
 ;;;;
 
 ;; provides minibuffer documentation for the code you're typing into the repl
-(add-hook 'cider-mode-hook 'eldoc-mode)
+(add-hook 'cider-mode-hook #'eldoc-mode)
 
 ;; go right to the REPL buffer when it's finished connecting
 (setq cider-repl-pop-to-buffer-on-connect t)
@@ -51,7 +52,7 @@
 ;; Use clojure mode for other extensions
 (add-to-list 'auto-mode-alist '("\\.edn$" . clojure-mode))
 (add-to-list 'auto-mode-alist '("\\.boot$" . clojure-mode))
-(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojure-mode))
+(add-to-list 'auto-mode-alist '("\\.cljs.*$" . clojurescript-mode))
 (add-to-list 'auto-mode-alist '("lein-env" . enh-ruby-mode))
 
 
@@ -74,12 +75,28 @@
   (interactive)
   (cider-repl-set-ns "user"))
 
-(eval-after-load 'cider
-  '(progn
-     (define-key clojure-mode-map (kbd "C-c C-v") 'cider-start-http-server)
-     (define-key clojure-mode-map (kbd "C-M-r") 'cider-refresh)
-     (define-key clojure-mode-map (kbd "C-c u") 'cider-user-ns)
-     (define-key cider-mode-map (kbd "C-c u") 'cider-user-ns)))
+;; (eval-after-load 'clojure-mode
+;;   '(sayid-setup-package))
 
- (eval-after-load 'clojure-mode
-   '(sayid-setup-package))
+;; (setq cljr-inject-dependencies-at-jack-in nil)
+
+
+
+(require 'clj-refactor)
+;; (add-hook 'clojure-mode-hook (lambda ()
+;;                                (clj-refactor-mode 1)
+;;                                ;; insert keybinding setup here
+;;                                (cljr-add-keybindings-with-prefix "C-c C-m")
+;;                                ))
+
+(add-hook 'clojure-mode-hook (lambda () (yas-minor-mode 1)))
+(add-hook 'cider-repl-mode-hook (lambda () 
+                                  (define-key cider-repl-mode-map (kbd "s-k") 'cider-repl-clear-buffer)
+                                  (define-key cider-repl-mode-map (kbd "s-x") 'cider-switch-to-last-clojure-buffer)))
+(add-hook 'clojure-mode-hook (lambda ()
+                               (define-key clojure-mode-map (kbd "s-x") 'cider-switch-to-repl-buffer)))
+
+(setq cider-cljs-lein-repl
+	"(do (require 'figwheel-sidecar.repl-api)
+         (figwheel-sidecar.repl-api/start-figwheel!)
+         (figwheel-sidecar.repl-api/cljs-repl))")
